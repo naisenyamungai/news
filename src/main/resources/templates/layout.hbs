@@ -12,27 +12,6 @@
     <link rel="stylesheet" href="/app.css">
 </head>
 <body>
-<!--<nav class="navbar navbar-inverse" id="navigationbar" >-->
-<!--    <div class="container-fluid">-->
-<!--        <div class="navbar-header">-->
-<!--            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">-->
-<!--                <span class="icon-bar"></span>-->
-<!--                <span class="icon-bar"></span>-->
-<!--                <span class="icon-bar"></span>-->
-<!--            </button>-->
-<!--            <a href="/"><p>Site Maintenance</p></a>-->
-<!--        </div>-->
-<!--        <div class="collapse navbar-collapse" id="myNavbar">-->
-<!--            <ul class="nav navbar-nav">-->
-<!--                <li><a href="/index"><p>Engineers</p></a></li>-->
-<!--                <li><a href="/engineers/new"><p>Eng-Details</p></a></li>-->
-<!--                <li><a href="/site"><p>Sites</p></a></li>-->
-<!--                <li><a href="/sites/new"><p>Sites/Engineer</p></a></li>-->
-<!--            </ul>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</nav>-->
-
 
 <div class="header">
     <div class="row">
@@ -40,30 +19,39 @@
             <div id="hamMenu">
                 <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <h3>Categories</h3>
-                    <a href="#apparel">Departments</a>
-                    <ul class="news">
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">News<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/index"><p>General News</p></a></li>
-                                <li><a href="/engineers/new"><p>Departmental News</p></a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <h2>Categories</h2>
+                    <div class="departments">
+                       <ul class="nav navbar-nav">
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/department">Departments<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/gennews.hbs">Department Creation Form</a></li>
+                                    <li><a href="/depnews.hbs">Employee Creation Form</a></li>
+                                </ul>
+                            </li>
+                       </ul>
+                    </div>
+                    <div class="mpasho">
+                        <ul class="nav navbar-nav">
+
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">News <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/gennews.hbs">General News</a></li>
+                                    <li><a href="/depnews.hbs">Departmental News</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Categories</span>
             </div>
         </div>
         <div class="col-md-2"></div>
-        <div class="col-md-4">
-            <h1>SAFARICOM</h1>
+        <div class="col-md-6">
+            <a href="/"><h1>SAFARICOM</h1></a>
             <h4><em>TWAWEZA! When we come together great things happen</em></h4>
         </div>
     </div>
 </div>
-
-
 
 <div class="everything">
 
@@ -80,7 +68,7 @@
     </footer>
     <script>
      function openNav() {
-     document.getElementById("mySidenav").style.width = "500px";
+     document.getElementById("mySidenav").style.width = "415px";
      }
 
      function closeNav() {
