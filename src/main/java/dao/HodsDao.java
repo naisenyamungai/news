@@ -1,4 +1,4 @@
 package dao;
 
-public class HodsDao {
+public interface HodsDao {
 }
