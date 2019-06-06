@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="177c644c-4425-4eea-987a-17fcdd6192fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Directors.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Hods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/Sql2oDepartmentsDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/Sql2oDirectorsDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Divisions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Divisions.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -60,17 +59,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/divisionform.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+            <state relative-caret-position="120">
+              <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dao/Sql2oDirectorsDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/dao/Sql2oDivisionsDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/models/Divisions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+            <state relative-caret-position="512">
+              <caret line="47" selection-start-line="47" selection-end-line="47" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#226#227#0" expanded="true" />
@@ -146,13 +163,14 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/layout.hbs" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/divisionform.hbs" />
         <option value="$PROJECT_DIR$/src/main/java/models/Divisions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/DB.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="688" />
+    <option name="x" value="658" />
     <option name="y" value="31" />
-    <option name="width" value="592" />
+    <option name="width" value="622" />
     <option name="height" value="703" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -186,6 +204,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="News" type="b2602c69:ProjectViewProjectNode" />
+              <item name="News" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="News" type="b2602c69:ProjectViewProjectNode" />
@@ -258,10 +284,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="688" y="31" width="592" height="703" extended-state="0" />
+    <frame x="658" y="31" width="622" height="703" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.089090906" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.6086207" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -333,13 +359,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/department.hbs">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/public/images/foundation.jpeg">
       <provider selected="true" editor-type-id="images" />
@@ -432,13 +451,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/divisionform.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/models/Employees.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -476,8 +488,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/models/Divisions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+        <state relative-caret-position="512">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#226#227#0" expanded="true" />
@@ -493,6 +505,51 @@
             <element signature="e#1151#1152#0" expanded="true" />
             <element signature="e#1215#1216#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/DB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="63" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/Sql2oDepartmentsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/divisionform.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/Sql2oDirectorsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/Sql2oDivisionsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
         </state>
       </provider>
     </entry>
