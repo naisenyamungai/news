@@ -2,16 +2,14 @@ package models;
 import java.util.Objects;
 import java.util.ArrayList;
 
-public class Classified {
+public class Article {
     private String title;
     private String description;
     private int id;
-    private int departmentId;
 
-    public Classified(String title, String description, int departmentId) {
+    public Article(String title, String description) {
         this.title = title;
         this.description = description;
-        this.departmentId = departmentId;
         this.id = id;
     }
 
@@ -27,10 +25,6 @@ public class Classified {
         this.description = description;
     }
 
-    public void setDepartmentId(int departmentId){
-        this.departmentId = departmentId;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -43,9 +37,6 @@ public class Classified {
         return id;
     }
 
-    public int getDepartmentId(){
-        return departmentId;
-    }
 
     @Override
     public boolean equals(Object o) {
