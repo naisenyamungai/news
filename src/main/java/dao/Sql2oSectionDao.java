@@ -1,7 +1,6 @@
 package dao;
 import models.DB;
 import models.Section;
-
 import models.Employee;
 import org.sql2o.*;
 import java.util.List;

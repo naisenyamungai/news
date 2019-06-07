@@ -1,0 +1,59 @@
+{{#partial "content"}}
+
+    {{#if editClassified}}
+        <div class="formDetails">
+            <h1>Edit these details!</h1>
+            <form class="form" action="/articles/{{Articles.id}}" method="post">
+                <div class="form-group">
+                    <label for="story">Edit this article</label>
+                    <input id="story" name="story" type="text" value="{{Article.story}}">
+                </div>
+
+            </form>
+
+    {{else}}
+            <h1>Add your news article here!</h1>
+
+            <form action="/articles" method="post">
+                {{#if departments}}
+                    <div class="form-group">
+                        <label for="title">Enter Title</label>
+                        <input id="title" name="title" class="form-control" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Enter Short Description</label>
+                        <input id="description" name="description" class="form-control" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Enter Short Description</label>
+                        <input id="description" name="description" class="form-control" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="story">Example textarea</label>
+                        <textarea class="form-control" id="story" rows="100"></textarea>
+                    </div>
+
+                    <br>
+                    <label for="departmentId">Department</label>
+                    <select id="departmentId" name="departmentId">
+                        {{#each departments}}
+                            <option value="{{id}}">{{department_name}}</option>
+                        {{/each}}
+
+                    </select>
+                    <br>
+
+                    <p>Don't see the right Department?<span><a href="/departments/new">Add Department here...</a></span></p>
+                {{else}}
+                    <h3><a href="/departments/new">Add Department here...</a></h3>
+                {{/if}}
+                <button type="submit" class="btn btn-default">Go!</button>
+            </form>
+        </div>
+    {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}

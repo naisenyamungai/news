@@ -5,12 +5,14 @@ import java.util.ArrayList;
 public class Classified {
     private String title;
     private String description;
+    private String story;
     private int id;
     private int departmentId;
 
-    public Classified(String title, String description, int departmentId) {
+    public Classified(String title, String description, String story, int departmentId) {
         this.title = title;
         this.description = description;
+        this.story = story;
         this.departmentId = departmentId;
         this.id = id;
     }
@@ -29,6 +31,14 @@ public class Classified {
 
     public void setDepartmentId(int departmentId){
         this.departmentId = departmentId;
+    }
+
+    public void setStory(String story) {
+        this.story = story;
+    }
+
+    public String getStory() {
+        return story;
     }
 
     public String getTitle() {

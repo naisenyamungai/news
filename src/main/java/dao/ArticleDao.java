@@ -9,7 +9,7 @@ public interface ArticleDao {
 
     Article findById(int id);
 
-    void update(int id, String title, String description);
+    void update(int id, String title, String story);
 
     void deleteById(int id);
 
