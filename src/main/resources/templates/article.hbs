@@ -1,0 +1,40 @@
+{{#partial "content"}}
+    <br>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3> NEWS </h3>
+        </div>
+
+        <div class="panel-body">
+
+            <table id="indexDetails">
+                <thead>
+                <tr>
+                    <th scope="col">NEWS</th>
+                    <th scope="col">DETAILS</th>
+                </tr>
+                </thead>
+                {{#if articles}}
+                    {{#each articles }}
+                        <tbody>
+                        <tr>
+
+                            <td>{{description}}</td>
+                            <td><p><a href="/articles/{{id}}"> View details</a></p></td>
+                        </tr>
+                        </tbody>
+
+                    {{/each}}
+                {{else}}
+                    <p>No News yet!</p>
+                {{/if}}
+            </table>
+        </div>
+
+    <div class="panel-body">
+        <p>{{story}}</p>
+    </div>
+
+{{/partial}}
+
+{{> layout.hbs}}
