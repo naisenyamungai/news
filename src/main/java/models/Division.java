@@ -3,13 +3,13 @@ package models;
 import java.util.Objects;
 import java.util.ArrayList;
 
-public class Divisions {
+public class Division {
     private String division_name;
     private int id;
-    private ArrayList<Directors> directors;
-    private ArrayList<Departments> departments;
+    private ArrayList<Director> directors;
+    private ArrayList<Department> departments;
 
-    public Divisions(String division_name){
+    public Division(String division_name){
         this.division_name = division_name;
     }
 
@@ -34,11 +34,11 @@ public class Divisions {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Divisions divisions = (Divisions) o;
-        return getId() == divisions.getId() &&
-                Objects.equals(getDivision_name(), divisions.getDivision_name()) &&
-                Objects.equals(directors, divisions.directors) &&
-                Objects.equals(departments, divisions.departments);
+        Division division = (Division) o;
+        return getId() == division.getId() &&
+                Objects.equals(getDivision_name(), division.getDivision_name()) &&
+                Objects.equals(directors, division.directors) &&
+                Objects.equals(departments, division.departments);
     }
 
     @Override

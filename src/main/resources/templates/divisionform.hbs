@@ -5,41 +5,20 @@
             <h1>Edit these details!</h1>
             <form class="form" action="/divisions/{{editDivisions.id}}" method="post">
                 <div class="form-group">
-                    <label for="name">Edit this Engineer's name</label>
-                    <input id="name" name="name" type="text" value="{{editEngineer.name}}">
+                    <label for="division_name">Edit this Division's division_name</label>
+                    <input id="division_name" division_name="division_name" type="text" value="{{editDivision.division_name}}">
                 </div>
-                <div class="form-group">
-                    <label for="status">Edit Engineer's Status: On duty, On Leave or No longer Employed</label>
-                    <input id="status" name="status" class="form-control" type="text" value="{{editEngineer.status}}">
-                </div>
+
             </form>
 
     {{else}}
-            <h1>Add a new Engineer!</h1>
+            <h1>Add a new Division!</h1>
 
-        <form action="/engineers" method="post">
-            <div class="form-group">
-                <label for="first_name">Engineer's First Name</label>
-                <input id="first_name" name="first_name" class="form-control" type="text">
-            </div>
-            <div class="form-group">
-                <label for="name">Engineer's Middle Name</label>
-                <input id="name" name="name" class="form-control" type="text">
-            </div>
+        <form action="/divisions" method="post">
 
             <div class="form-group">
-                <label for="last_name">Engineer's Last Name</label>
-                <input id="last_name" name="last_name" class="form-control" type="text">
-            </div>
-
-            <div class="form-group">
-                <label for="staff">Engineer's EK number</label>
-                <input id="staff" name="staff" class="form-control" type="text">
-            </div>
-
-            <div class="form-group">
-                <label for="status">Engineer's Status: On duty or On Leave</label>
-                <input id="status" name="status" class="form-control" type="text">
+                <label for="division_name">Division's Middle Name</label>
+                <input id="division_name" division_name="division_name" class="form-control" type="text">
             </div>
 
     {{/if}}

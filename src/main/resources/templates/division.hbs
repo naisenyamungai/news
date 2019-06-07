@@ -1,0 +1,42 @@
+{{#partial "content"}}
+    <h2>Safaricom Divisions</h2>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <p> Safaricom Divisions </p>
+        </div>
+
+        <div class="panel-body">
+
+            <table id="indexDetails">
+                <thead>
+                <tr>
+
+                    <th scope="col">Division Name</th>
+                </tr>
+                </thead>
+                {{#if divisions}}
+                    {{#each divisions }}
+                        <tbody>
+                        <tr>
+
+                            <th scope="row" >{{status}}</th>
+                            <td>{{name}}</td>
+                            <td><p><a href="/divisions/{{id}}"> View details</a></p></td>
+                        </tr>
+                        </tbody>
+
+                    {{/each}}
+                {{else}}
+                    <p>No Divisions yet!</p>
+                {{/if}}
+            </table>
+        </div>
+
+        <div class="panel-footer">
+            <p>Add Division!<a href="/divisions/new">Here</a></p>
+        </div>
+    </div>
+
+{{/partial}}
+
+{{> layout.hbs}}
