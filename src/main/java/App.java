@@ -23,6 +23,16 @@ import spark.template.handlebars.HandlebarsTemplateEngine;
 public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
+        ProcessBuilder process = new ProcessBuilder();
+        Integer port;
+        if (process.environment().get("PORT") != null) {
+            port = Integer.parseInt(process.environment().get("PORT"));
+        } else {
+            port = 4567;
+        }
+
+        port(port);
+
         Sql2o sql2o = DB.sql2o;
         Sql2oDivisionDao divisionDao = new Sql2oDivisionDao(sql2o);
         Sql2oDirectorDao directorDao = new Sql2oDirectorDao(sql2o);
