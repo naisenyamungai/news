@@ -1,8 +1,8 @@
 {{#partial "content"}}
-    <h2>Safaricom Divisions</h2>
+    <br>
     <div class="panel panel-default">
         <div class="panel-heading">
-            <p> Safaricom Divisions </p>
+            <h3> SAFARICOM DIVISIONS </h3>
         </div>
 
         <div class="panel-body">
@@ -10,8 +10,8 @@
             <table id="indexDetails">
                 <thead>
                 <tr>
-
-                    <th scope="col">Division Name</th>
+                    <th scope="col">DIVISION NAME</th>
+                    <th scope="col">DETAILS</th>
                 </tr>
                 </thead>
                 {{#if divisions}}
@@ -19,8 +19,7 @@
                         <tbody>
                         <tr>
 
-                            <th scope="row" >{{status}}</th>
-                            <td>{{name}}</td>
+                            <td>{{division_name}}</td>
                             <td><p><a href="/divisions/{{id}}"> View details</a></p></td>
                         </tr>
                         </tbody>
@@ -33,7 +32,7 @@
         </div>
 
         <div class="panel-footer">
-            <p>Add Division!<a href="/divisions/new">Here</a></p>
+            <h4>Add Division!<a href="/divisions/new">Here</a></h4>
         </div>
     </div>
 

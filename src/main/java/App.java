@@ -56,12 +56,55 @@ public class App {
             return new ModelAndView(model, "divisionform.hbs");
         }, new HandlebarsTemplateEngine());
 
+
         //division: process new division form
         post("/divisions", (req, res) -> { //URL to make new task on POST route
             Map<String, Object> model = new HashMap<>();
             String division_name = req.queryParams("division_name");
             Division newDivision = new Division(division_name);
             divisionDao.add(newDivision);
+            res.redirect("/");
+            return null;
+        }, new HandlebarsTemplateEngine());
+
+
+        //get: show all departments
+        get("/department", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Department> allDepartments = departmentDao.getAll();
+            model.put("departments", allDepartments);
+            return new ModelAndView(model, "department.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+        //get: show new department form
+        get("/departments/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Division> divisions = divisionDao.getAll();
+            model.put("divisions", divisions);
+            return new ModelAndView(model, "depform.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+//        //division: process new department form
+//        post("/departments", (req, res) -> { //URL to make new task on POST route
+//            Map<String, Object> model = new HashMap<>();
+//            String department_name = req.queryParams("department_name");
+//            Division newDivision = new Division(department_name);
+//            departmentDao.add(newDepartment);
+//            res.redirect("/");
+//            return null;
+//        }, new HandlebarsTemplateEngine());
+
+        //department: process new department form
+        post("/departments", (req, res) -> { //URL to make new task on POST route
+            Map<String, Object> model = new HashMap<>();
+            List<Division> allDivisions = divisionDao.getAll();
+            model.put("divisions", allDivisions);
+            String department_name = req.queryParams("department_name");
+            int divisionId = Integer.parseInt(req.queryParams("divisionId"));
+            Department newDepartment = new Department(department_name, divisionId);
+            departmentDao.add(newDepartment);
             res.redirect("/");
             return null;
         }, new HandlebarsTemplateEngine());

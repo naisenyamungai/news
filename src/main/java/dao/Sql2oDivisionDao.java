@@ -45,11 +45,11 @@ public class Sql2oDivisionDao implements DivisionDao{
     }
 
     @Override
-    public void update(int id, String newDepartment_name){
+    public void update(int id, String newDivision_name){
         String sql = "UPDATE divisions SET division_name = :name WHERE id=:id";
         try(Connection con = DB.sql2o.open()){
             con.createQuery(sql)
-                    .addParameter("name", newDepartment_name)
+                    .addParameter("name", newDivision_name)
                     .addParameter("id", id)
                     .executeUpdate();
         } catch (Sql2oException ex) {

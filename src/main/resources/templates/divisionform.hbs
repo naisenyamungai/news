@@ -3,10 +3,10 @@
     {{#if editDivision}}
         <div class="formDetails">
             <h1>Edit these details!</h1>
-            <form class="form" action="/divisions/{{editDivisions.id}}" method="post">
+            <form class="form" action="/divisions/{{Divisions.id}}" method="post">
                 <div class="form-group">
                     <label for="division_name">Edit this Division's division_name</label>
-                    <input id="division_name" division_name="division_name" type="text" value="{{editDivision.division_name}}">
+                    <input id="division_name" name="division_name" type="text" value="{{Division.division_name}}">
                 </div>
 
             </form>
@@ -17,8 +17,8 @@
         <form action="/divisions" method="post">
 
             <div class="form-group">
-                <label for="division_name">Division's Middle Name</label>
-                <input id="division_name" division_name="division_name" class="form-control" type="text">
+                <label for="division_name">Division's  Name</label>
+                <input id="division_name" name="division_name" class="form-control" type="text">
             </div>
 
     {{/if}}

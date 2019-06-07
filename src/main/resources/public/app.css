@@ -134,3 +134,57 @@ body{
   height:100px;
   color:rgb(57, 181, 74);
   }
+
+  .everything{
+  background-color:white;
+  color:black;
+  }
+
+  .col-md-12{
+  padding-right:0px;
+  padding-left:0px;
+  padding-top:0px;
+
+  }
+
+
+  table{
+    border-collapse: collapse;
+    width: 80%;
+    font-family: 'Lusitana', serif;
+    margin-left:10%;
+  }
+
+  td{
+  font-size:16px;
+  color:black;
+  }
+
+  th{
+  font-size:18px;
+  color:black;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+ #indexDetails td, th{
+ color:rgb(10, 18, 40);
+ }
+
+ .formDetails{
+  width: 80%;
+  margin-left:20%;
+ }
+
+ table .tableDetails{
+ width:100%;
+ margin-left:0%;
+ }
+
+.panel-heading h3{
+text-align:centre;
+}

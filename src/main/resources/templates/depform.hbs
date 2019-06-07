@@ -1,0 +1,42 @@
+{{#partial "content"}}
+
+    {{#if editDepartment}}
+        <div class="formDetails">
+            <h1>Edit these details!</h1>
+            <form class="form" action="/departments/{{Departments.id}}" method="post">
+                <div class="form-group">
+                    <label for="department_name">Edit this Department's Name</label>
+                    <input id="department_name" name="department_name" type="text" value="{{Department.department_name}}">
+                </div>
+
+            </form>
+
+    {{else}}
+            <h1>Add a new Department!</h1>
+
+        <form action="/departments" method="post">
+        {{#if divisions}}
+            <div class="form-group">
+                <label for="department_name">Department's  Name</label>
+                <input id="department_name" name="department_name" class="form-control" type="text">
+            </div>
+
+            <br>
+             <label for="divisionId">Engineer for this site</label>
+             <select id="divisionId" name="divisionId">
+                    {{#each divisions}}
+                        <option value="{{id}}">{{division_name}}</option>
+                    {{/each}}
+
+             </select>
+              <br>
+        {{else}}
+        <h3><a href="/divisions/new">Add Division here...</a></h3>
+        {{/if}}
+        <button type="submit" class="btn btn-default">Go!</button>
+    </form>
+    </div>
+{{/if}}
+{{/partial}}
+
+{{> layout.hbs}}
