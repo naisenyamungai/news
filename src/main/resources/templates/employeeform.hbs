@@ -1,0 +1,59 @@
+{{#partial "content"}}
+
+    {{#if editSection}}
+        <div class="formDetails">
+            <h1>Edit these details!</h1>
+            <form class="form" action="/employees/{{Employees.id}}" method="post">
+                <div class="form-group">
+                    <label for="first_name">Edit this Staff Name</label>
+                    <input id="first_name" name="first_name" type="text" value="{{Employee.first_name}}">
+                </div>
+
+            </form>
+
+    {{else}}
+            <h1>Add a new Staff!</h1>
+
+            <form action="/employees" method="post">
+                {{#if sections}}
+                    <div class="form-group">
+                        <label for="role">Staff's Role</label>
+                        <input id="role" name="role" class="form-control" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="first_name">First  Name</label>
+                        <input id="first_name" name="first_name" class="form-control" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="last_name">Last  Name</label>
+                        <input id="last_name" name="last_name" class="form-control" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="staff">Staff's EK Number</label>
+                        <input id="staff" name="staff" class="form-control" type="text">
+                    </div>
+
+                    <br>
+                    <label for="sectionId">Section</label>
+                    <select id="sectionId" name="sectionId">
+                        {{#each sections}}
+                            <option value="{{id}}">{{section_name}}</option>
+                        {{/each}}
+
+                    </select>
+                    <br>
+
+                    <p>Don't see the right Section?<span><a href="/sections/new">Add Section here...</a></span></p>
+                {{else}}
+                    <h3><a href="/sections/new">Add Section here...</a></h3>
+                {{/if}}
+                <button type="submit" class="btn btn-default">Go!</button>
+            </form>
+        </div>
+    {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}

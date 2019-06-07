@@ -86,15 +86,6 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
-//        //division: process new department form
-//        post("/departments", (req, res) -> { //URL to make new task on POST route
-//            Map<String, Object> model = new HashMap<>();
-//            String department_name = req.queryParams("department_name");
-//            Division newDivision = new Division(department_name);
-//            departmentDao.add(newDepartment);
-//            res.redirect("/");
-//            return null;
-//        }, new HandlebarsTemplateEngine());
 
         //department: process new department form
         post("/departments", (req, res) -> { //URL to make new task on POST route
@@ -108,6 +99,76 @@ public class App {
             res.redirect("/");
             return null;
         }, new HandlebarsTemplateEngine());
+
+
+        //get: show all sections
+        get("/sections", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Section> allSections = sectionDao.getAll();
+            model.put("sections", allSections);
+            return new ModelAndView(model, "sections.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+        //get: show new department form
+        get("/sections/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Department> departments = departmentDao.getAll();
+            model.put("departments", departments);
+            return new ModelAndView(model, "sectionform.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+
+        //department: process new department form
+        post("/sections", (req, res) -> { //URL to make new task on POST route
+            Map<String, Object> model = new HashMap<>();
+            List<Department> allDepartments = departmentDao.getAll();
+            model.put("departments", allDepartments);
+            String section_name = req.queryParams("section_name");
+            int departmentId = Integer.parseInt(req.queryParams("departmentId"));
+            Section newSection = new Section(section_name, departmentId);
+            sectionDao.add(newSection);
+            res.redirect("/");
+            return null;
+        }, new HandlebarsTemplateEngine());
+
+
+        //get: show all employees
+        get("/employees", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Employee> allEmployees = employeeDao.getAll();
+            model.put("employees", allEmployees);
+            return new ModelAndView(model, "employees.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+        //get: show new employee form
+        get("/employees/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Section> sections = sectionDao.getAll();
+            model.put("sections", sections);
+            return new ModelAndView(model, "employeeform.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+
+        //department: process new department form
+        post("/employees", (req, res) -> { //URL to make new task on POST route
+            Map<String, Object> model = new HashMap<>();
+            List<Section> allSections = sectionDao.getAll();
+            model.put("sections", allSections);
+            String role = req.queryParams("role");
+            String first_name = req.queryParams("first_name");
+            String last_name = req.queryParams("last_name");
+            String staff = req.queryParams("staff");
+            int sectionId = Integer.parseInt(req.queryParams("sectionId"));
+            Employee newEmployee = new Employee(role, first_name, last_name, staff, sectionId);
+            employeeDao.add(newEmployee);
+            res.redirect("/");
+            return null;
+        }, new HandlebarsTemplateEngine());
+
 
     }
 }

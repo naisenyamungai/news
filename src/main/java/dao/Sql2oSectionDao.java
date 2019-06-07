@@ -15,7 +15,7 @@ public class Sql2oSectionDao implements SectionDao{
 
     @Override
     public void add(Section section) {
-        String sql = "INSERT INTO sections (section_name) VALUES (:section_name)"; //raw sql
+        String sql = "INSERT INTO sections (section_name, departmentId) VALUES (:section_name, :departmentId)"; //raw sql
         try(Connection con = DB.sql2o.open()){ //try to open a connection
             int id = (int) con.createQuery(sql, true) //make a new variable
                     .bind(section) //map my argument onto the query so we can use information from it

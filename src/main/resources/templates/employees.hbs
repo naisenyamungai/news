@@ -1,0 +1,47 @@
+{{#partial "content"}}
+    <br>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3> STAFF DETAILS </h3>
+        </div>
+
+        <div class="panel-body">
+
+            <table id="indexDetails">
+                <thead>
+                <tr>
+                    <th scope="col">STAFF ROLE</th>
+                    <th scope="col">FIRST NAME</th>
+                    <th scope="col">LAST NAME</th>
+                    <th scope="col">EK NUMBER</th>
+                </tr>
+                </thead>
+                {{#if employees}}
+                    {{#each employees }}
+                        <tbody>
+                        <tr>
+
+                            <td>{{role}}</td>
+                            <td>{{first_name}}</td>
+                            <td>{{last_name}}</td>
+                            <td>{{staff}}</td>
+<!--                            -->
+<!--                            <td><p><a href="/sections/{{id}}"> View details</a></p></td>-->
+                        </tr>
+                        </tbody>
+
+                    {{/each}}
+                {{else}}
+                    <p>No Staff's Created yet!</p>
+                {{/if}}
+            </table>
+        </div>
+
+        <div class="panel-footer">
+            <h4>Add Section!<a href="/sections/new">Here</a></h4>
+        </div>
+    </div>
+
+{{/partial}}
+
+{{> layout.hbs}}

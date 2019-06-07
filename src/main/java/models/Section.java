@@ -45,6 +45,7 @@ public class Section {
         Section section = (Section) o;
         return getId() == section.getId() &&
                 Objects.equals(getSection_name(), section.getSection_name()) &&
+
                 Objects.equals(employees, section.employees);
 
     }

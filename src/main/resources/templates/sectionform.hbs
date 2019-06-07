@@ -5,7 +5,7 @@
             <h1>Edit these details!</h1>
             <form class="form" action="/sections/{{Sections.id}}" method="post">
                 <div class="form-group">
-                    <label for="section_name">Edit this Department's Name</label>
+                    <label for="section_name">Edit this Section's Name</label>
                     <input id="section_name" name="section_name" type="text" value="{{Section.section_name}}">
                 </div>
 
@@ -15,14 +15,14 @@
             <h1>Add a new Section!</h1>
 
             <form action="/sections" method="post">
-                {{#if divisions}}
+                {{#if departments}}
                     <div class="form-group">
                         <label for="section_name">Section's  Name</label>
                         <input id="section_name" name="section_name" class="form-control" type="text">
                     </div>
 
                     <br>
-                    <label for="departmentId">Engineer for this site</label>
+                    <label for="departmentId">Department</label>
                     <select id="departmentId" name="departmentId">
                         {{#each departments}}
                             <option value="{{id}}">{{department_name}}</option>
@@ -30,6 +30,8 @@
 
                     </select>
                     <br>
+
+                    <p>Don't see the right Department?<span><a href="/departments/new">Add Department here...</a></span></p>
                 {{else}}
                     <h3><a href="/departments/new">Add Department here...</a></h3>
                 {{/if}}
