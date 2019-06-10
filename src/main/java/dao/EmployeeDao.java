@@ -3,7 +3,10 @@ import models.Employee;
 import java.util.List;
 
 public interface EmployeeDao {
+
     List<Employee> getAll();
+
+    List<Employee> getAllEmployeesBySection(int sectionId);
 
     void add(Employee employee);
 

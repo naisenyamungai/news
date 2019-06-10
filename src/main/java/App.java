@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.google.gson.Gson;
+import exceptions.ApiException;
 import dao.*;
 import models.DB;
 import models.Division;
@@ -120,7 +121,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
-        //get: show new department form
+        //get: show new section form
         get("/sections/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             List<Department> departments = departmentDao.getAll();
@@ -130,7 +131,7 @@ public class App {
 
 
 
-        //department: process new department form
+        //department: process new section form
         post("/sections", (req, res) -> { //URL to make new task on POST route
             Map<String, Object> model = new HashMap<>();
             List<Department> allDepartments = departmentDao.getAll();
@@ -163,7 +164,7 @@ public class App {
 
 
 
-        //department: process new department form
+        //department: process new employee form
         post("/employees", (req, res) -> { //URL to make new task on POST route
             Map<String, Object> model = new HashMap<>();
             List<Section> allSections = sectionDao.getAll();
@@ -200,7 +201,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
-        //division: process new division form
+        //division: process new article form
         post("/articles", (req, res) -> { //URL to make new task on POST route
             Map<String, Object> model = new HashMap<>();
             String title = req.queryParams("title");
@@ -221,8 +222,43 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
+        //get: show all classifieds
+        get("/classifieds", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Classified> allClassifieds = classifiedDao.getAll();
+            model.put("classifieds", allClassifieds);
+            return new ModelAndView(model, "classified.hbs");
+        }, new HandlebarsTemplateEngine());
 
-  // API SECTION
+
+        //get: show new classified form
+        get("/classifieds/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Department> departments = departmentDao.getAll();
+            model.put("departments", departments);
+            return new ModelAndView(model, "classifiedform.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+
+        //department: process new classified form
+        post("/classifieds", (req, res) -> { //URL to make new task on POST route
+            Map<String, Object> model = new HashMap<>();
+            List<Department> allDepartments = departmentDao.getAll();
+            model.put("departments", allDepartments);
+            String title = req.queryParams("title");
+            String description = req.queryParams("description");
+            String story = req.queryParams("story");
+            int departmentId = Integer.parseInt(req.queryParams("departmentId"));
+            Classified newClassified = new Classified(title, description, story, departmentId);
+            classifiedDao.add(newClassified);
+            res.redirect("/");
+            return null;
+        }, new HandlebarsTemplateEngine());
+
+
+
+        // API SECTION
 
         post("/divisions/api/new", "application/json", (req, res) -> {
             Division division = gson.fromJson(req.body(), Division.class);
@@ -236,9 +272,83 @@ public class App {
             return gson.toJson(divisionDao.getAll());
         });
 
-        get("/divisions/api/:id", "application/json", (req, res) -> {
-            int divisionId = Integer.parseInt(req.params("id"));
-            return gson.toJson(divisionDao.findById(divisionId));
+//        get("/divisions/api/:id", "application/json", (req, res) -> {
+//            int divisionId = Integer.parseInt(req.params("id"));
+//            return gson.toJson(divisionDao.findById(divisionId));
+//        });
+
+        post("/articles/api/new", "application/json", (req, res) -> {
+            Article article = gson.fromJson(req.body(), Article.class);
+            articleDao.add(article);
+            res.status(201);;
+            return gson.toJson(article);
         });
+
+        get("/articles/api", "application/json", (req, res) -> {
+            return gson.toJson(articleDao.getAll());
+        });
+
+        get("/classifieds/api", "application/json", (req, res) -> {
+            return gson.toJson(classifiedDao.getAll());
+        });
+
+//
+//        get("/departments/:id/classifieds", "application/json", (req, res) -> {
+//            int departmentId = Integer.parseInt(req.params("id"));
+//
+//            Department departmentToFind = departmentDao.findById(departmentId);
+//            List<Classified> allClassifieds;
+//
+//            if (departmentToFind == null){
+//                throw new ApiException(404, String.format("No department with the id: \"%s\" exists", req.params("id")));
+//            }
+//
+//            allClassifieds = classifiedDao.getAllClassifiedsByDepartment(departmentId);
+//
+//            return gson.toJson(allClassifieds);
+//        });
+//
+//
+//
+//        get("/sections/:section_id/employees/:employee_id", (req, res) ->{
+//            Map<String, Object> model = new HashMap<>();
+//            int idOfSectionToFind = Integer.parseInt(req.params("section_id"));
+//            Section foundSection = sectionDao.findById(idOfSectionToFind);
+//            int idOfEmployeeToFind = Integer.parseInt(req.params("employee_id"));
+//            Employee foundEmployee = employeeDao.findById(idOfEmployeeToFind);
+//            model.put("section", foundSection);
+//            model.put("employee", foundEmployee);
+//            model.put("sections", sectionDao.getAll());
+//            model.put("employees", sectionDao.getAllEmployeesBySection(idOfEmployeeToFind));
+//            return new ModelAndView(model, "section-detail.hbs");
+//        }, new HandlebarsTemplateEngine());
+//
+//
+//
+//        get("/sections/:id/employees/api", "application/json", (req, res) -> {
+//            int sectionId = Integer.parseInt(req.params("id"));
+//            Section sectionToFind = sectionDao.findById(sectionId);
+//            if (sectionToFind == null){
+//                throw new ApiException(404, String.format("No section with the id: \"%s\" exists", req.params("id")));
+//            }
+//            else if (sectionDao.getAllEmployeesBySection(sectionId).size()==0){
+//                return "{\"message\":\"I'm sorry, but no employees are listed for this section.\"}";
+//            }
+//            else {
+//                return gson.toJson(sectionDao.getAllEmployeesBySection(sectionId));
+//            }
+//        });
+
+        //FILTERS
+        exception(ApiException.class, (exception, req, res) -> {
+            ApiException err = (ApiException)  exception;
+            Map<String, Object> jsonMap = new HashMap<>();
+            jsonMap.put("status", err.getStatusCode());
+            jsonMap.put("errorMessage", err.getMessage());
+            res.type("application/json");
+            res.status(err.getStatusCode());
+            res.body(gson.toJson(jsonMap));
+        });
+
     }
 }

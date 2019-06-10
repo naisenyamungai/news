@@ -1,0 +1,41 @@
+{{#partial "content"}}
+    <h3>Departmental News</h3>
+    <br>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>{{title}} </h3>
+        </div>
+
+        <div class="panel-body">
+
+            <table id="indexDetails">
+                <thead>
+                <tr>
+                    <th scope="col">NEWS</th>
+                    <th scope="col">DETAILS</th>
+                </tr>
+                </thead>
+                {{#if classifieds}}
+                    {{#each classifieds }}
+                        <tbody>
+                        <tr>
+
+                            <td>{{description}}</td>
+                            <td><p><a href="/classifieds/{{id}}"> View details</a></p></td>
+                        </tr>
+                        </tbody>
+
+                    {{/each}}
+                {{else}}
+                    <p>No News yet!</p>
+                {{/if}}
+            </table>
+        </div>
+
+        <div class="panel-body">
+            <p>{{story}}</p>
+        </div>
+    </div>
+{{/partial}}
+
+{{> layout.hbs}}

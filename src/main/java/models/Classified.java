@@ -61,11 +61,12 @@ public class Classified {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Article article = (Article) o;
-        return getId() == article.getId() &&
-                Objects.equals(getTitle(), article.getTitle()) &&
-                Objects.equals(getDescription(), article.getDescription());
-
+        Classified classified = (Classified) o;
+        return getId() == classified.getId() &&
+                getDepartmentId() == classified.getDepartmentId() &&
+                getTitle() == classified.getTitle() &&
+                getDescription() == classified.getDescription() &&
+                getStory().equals(classified.getStory());
     }
 
     @Override

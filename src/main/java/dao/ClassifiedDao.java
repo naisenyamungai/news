@@ -4,6 +4,7 @@ import java.util.List;
 
 public interface ClassifiedDao {
     List<Classified> getAll();
+    List<Classified> getAllClassifiedsByDepartment(int departmentId);
 
     void add(Classified classified);
 

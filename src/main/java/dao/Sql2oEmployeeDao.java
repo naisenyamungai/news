@@ -33,6 +33,14 @@ public class Sql2oEmployeeDao implements EmployeeDao{
         }
     }
 
+    @Override
+    public List<Employee> getAllEmployeesBySection(int sectionId) {
+        try (Connection con = DB.sql2o.open()) {
+            return con.createQuery("SELECT * FROM employees WHERE sectionId = :sectionId")
+                    .addParameter("sectionId", sectionId)
+                    .executeAndFetch(Employee.class);
+        }
+    }
 
     @Override
     public Employee findById(int id) {

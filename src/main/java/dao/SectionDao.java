@@ -10,7 +10,7 @@ public interface SectionDao {
 
     Section findById(int id);
 
-    List<Employee> getAllEmployeesBySection(int departmentId);
+    List<Employee> getAllEmployeesBySection(int sectionId);
 
     void update(int id, String section_name);
 

@@ -13,7 +13,7 @@ public class Sql2oClassifiedDao implements ClassifiedDao{
 
     @Override
     public void add(Classified classified) {
-        String sql = "INSERT INTO classifieds (title, description, story, departmentId) VALUES (:title, :description, :departmentId, :story)"; //raw sql
+        String sql = "INSERT INTO classifieds (title, description, story, departmentId) VALUES (:title, :description, :story, :departmentId)"; //raw sql
         try(Connection con = DB.sql2o.open()){ //try to open a connection
             int id = (int) con.createQuery(sql, true) //make a new variable
                     .bind(classified) //map my argument onto the query so we can use information from it
@@ -30,6 +30,15 @@ public class Sql2oClassifiedDao implements ClassifiedDao{
         try(Connection con = DB.sql2o.open()){
             return con.createQuery("SELECT * FROM classifieds") //raw sql
                     .executeAndFetch(Classified.class); //fetch a list
+        }
+    }
+
+    @Override
+    public List<Classified> getAllClassifiedsByDepartment(int departmentId) {
+        try (Connection con = DB.sql2o.open()) {
+            return con.createQuery("SELECT * FROM classifieds WHERE departmentId = :departmentId")
+                    .addParameter("departmentId", departmentId)
+                    .executeAndFetch(Classified.class);
         }
     }
 
