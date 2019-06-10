@@ -1,9 +1,13 @@
-# Organizational News and Sections API
+## Project Name
+          REST APIs
 
-#### By **Michael Odongo, June 6th, 2019**
+## Author
+            [Naisenya Mungai](https://github.com/naisenyamungai)
+            Student - Full Stack Developer(Java & Android)
 
-## Description
-This web app REST API for querying and retrieving scoped news and information.
+## Project Description
+REST API for querying and retrieving scoped news and information. There should be news/articles/posts that are available to all employees without navigating into any department, and others that are housed/classified within departments
+
 
 ## Behavior of the programm
 
@@ -16,17 +20,17 @@ This web app REST API for querying and retrieving scoped news and information.
  ## API Technical Documentation / Specifications
 | Path                                     |  Operation | Description   |
  | ---------------------------------------------- | ------ | --------- |
- | https://sfcinfoapp.herokuapp.com/api/list-departments| GET  | List all departments|
- |https://sfcinfoapp.herokuapp.com/api/api/list-staff| GET| List all staff|
- | https://sfcinfoapp.herokuapp.com/api/api/add-department |POST| Add department|
-  | https://sfcinfoapp.herokuapp.com/api/api/add-news |POST| Add News|
+ | https://damp-sea-70941.herokuapp.com/divisions/api| GET  | List all divisions|
+ |https://damp-sea-70941.herokuapp.com/articles/api| GET| General News across the organization|
+ | https://damp-sea-70941.herokuapp.com/classifieds/api |GET| Departmental News|
+  | https://sfcinfoapp.herokuapp.com/divisions/api/new |POST| Add Divisions|
 
 
 ## Setup/Installation Requirements
 
 * create a new folder on your desired location in your local machine
 * git init using your terminal
-* git clone https://github.com/modongo/saftechteam.git
+* git clone https://github.com/naisenyamungai/news.git
 * make sure you have intellij installed in you laptop.
 * launch intellij and go to files>open project.
 * enjoy the code.
@@ -50,30 +54,18 @@ currently there a bug affecting addition of staff and departments.
 
 * none
 
-## live link:
-
-$< https://saftechteams.herokuapp.com >
 
 # clone into repository
 
-$ git clone  https://github.com/modongo/saftechteam.git
+$ git clone  https://github.com/naisenyamungai/news.git
 ### Open using your favorite editor and view the code or just open the index.html on the browser
 
-## Feedback
-
-Incase of any issues or feedback please add using any of below links.
-
-* [Issues]( https://github.com/modongo/saftechteam.issues). To submit any issues.
-
-* [email](mikodongo@gmail.com) for any other feedback.
-
 ## Support and contact details
+> naisenyamungai@gmail.com
 
- Contact me on [email](mikodongo@gmail.com) or on my github account <https://github.com/modongo>
+## To access this webpage open below link
+> https://damp-sea-70941.herokuapp.com/
 
+## [License](https://github.com/naisenyamungai/Github-Search/LICENSE.md)
 
-## License
-
-This project is licensed under the MIT License
-
-**_Michael Odongo_** Copyright (c) 2019
+MIT © [Naisenya Mungai ](https://github.com/naisenyamungai)
